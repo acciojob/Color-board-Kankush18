@@ -1,31 +1,30 @@
 //your JS code here. If required.
-// JavaScript code goes here
-const container = document.querySelector('.container');
-
-// Function to create 800 boxes
-function createBoxes() {
-    for (let i = 0; i < 800; i++) {
-        const box = document.createElement('div');
-        box.classList.add('square');
-        container.appendChild(box);
-        box.addEventListener('mouseover', function() {
-            const randomColor = getRandomColor();
-            box.style.backgroundColor = randomColor;
-            setTimeout(() => {
-                box.style.backgroundColor = 'grey'; // Revert back to default color after 1 second
-            }, 1000);
-        });
-    }
+let container=document.querySelector('.container');
+function createBoxes(){
+	for(let i=0;i<800;i++){
+		let box=document.createElement('div');
+		box.classList.add('square');
+		container.appendChild(box);
+		box.addEventListener('mouseover',()=>{
+			let randomColor=getRandomColor();
+			box.style.backgroundColor=randomColor;
+			setTimeout(()=>{
+				box.style.backgroundColor='#1C1B1C';
+			},1000);
+		})
+	}
+	
 }
-
-// Function to generate random color
-function getRandomColor() {
-    const letters = '0123456789ABCDEF';
-    let color = '#';
-    for (let i = 0; i < 6; i++) {
-        color += letters[Math.floor(Math.random() * 16)];
-    }
-    return color;
+function getRandomColor(){
+	 var chars = "0123456789abcdef";
+            var colorLength = 6;
+            var color = "";
+            for (var i = 0; i < colorLength; i++){
+                var randomColor = Math.floor(Math.random() * chars.length);
+                color += chars.substring(randomColor,randomColor+1);
+            }
+            return "#"+color;
+        
+	
 }
-
 createBoxes();
