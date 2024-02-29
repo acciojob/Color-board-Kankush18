@@ -4,6 +4,7 @@
 	height:20px;
 	border:2px solid black;
 	background-color:#1C1B1C;
+	transition:background-color 1s ease;
 }
 .container{
 	display:grid;
